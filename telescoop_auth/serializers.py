@@ -13,7 +13,15 @@ class AuthSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ("first_name", "last_name", "email", "password")
+        fields = (
+            "first_name",
+            "last_name",
+            "email",
+            "password",
+            "is_superuser",
+            "is_admin",
+            "is_staff",
+        )
 
     def validate_password(self, value):
         errors = None

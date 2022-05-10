@@ -17,6 +17,7 @@ class User(AbstractBaseUser):
     last_name = models.CharField(max_length=150, default="")
     is_active = models.BooleanField(default=False)
     is_admin = models.BooleanField(default=False)
+    is_superuser = models.BooleanField(default=False)
     activation_key = models.UUIDField(default=uuid.uuid4, editable=False)
 
     USERNAME_FIELD = "email"

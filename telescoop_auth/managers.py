@@ -11,6 +11,7 @@ class UserManager(BaseUserManager):
         password: Optional[str] = None,
         is_active: Optional[bool] = False,
         is_admin: Optional[bool] = False,
+        is_superuser: Optional[bool] = False,
     ):
         """
         Creates and saves a User with the given email and password.
@@ -24,6 +25,7 @@ class UserManager(BaseUserManager):
             last_name=last_name,
             is_active=is_active,
             is_admin=is_admin,
+            is_superuser=is_superuser,
         )
         user.set_password(password)
         user.save(using=self._db)
@@ -47,6 +49,7 @@ class UserManager(BaseUserManager):
             password=password,
         )
         user.is_admin = True
+        user.is_superuser = True
         user.is_active = is_active
         user.save(using=self._db)
         return user
