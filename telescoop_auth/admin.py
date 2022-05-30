@@ -54,8 +54,8 @@ class UserChangeForm(forms.ModelForm):
     password = ReadOnlyPasswordHashField()
 
     class Meta:
-        model = MyUser
-        fields = fields = (
+        model = User
+        fields = (
             "email",
             "password",
             "first_name",
@@ -88,7 +88,7 @@ class UserAdmin(BaseUserAdmin):
             None,
             {
                 "classes": ("wide",),
-                "fields": ("email", "date_of_birth", "password1", "password2"),
+                "fields": ("email", "password1", "password2"),
             },
         ),
     )
@@ -98,7 +98,7 @@ class UserAdmin(BaseUserAdmin):
 
 
 # Now register the new UserAdmin...
-admin.site.register(MyUser, UserAdmin)
+admin.site.register(User, UserAdmin)
 # ... and, since we're not using Django's built-in permissions,
 # unregister the Group model from admin.
 admin.site.unregister(Group)
