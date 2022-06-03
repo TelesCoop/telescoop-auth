@@ -34,8 +34,8 @@ class UserManager(BaseUserManager):
     def create_superuser(
         self,
         email: str,
-        first_name: Optional[str] = "toto",
-        last_name: Optional[str] = "admin",
+        first_name: Optional[str] = "",
+        last_name: Optional[str] = "",
         password=None,
         is_active: bool = True,
     ):
